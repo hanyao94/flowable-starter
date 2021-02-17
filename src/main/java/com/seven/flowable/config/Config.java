@@ -12,15 +12,21 @@ package com.seven.flowable.config;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.flowable.rest.service.api.RestResponseFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties;
 import org.springframework.boot.autoconfigure.orm.jpa.JpaProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
  * @author seven
  */
 @Configuration
+@EntityScan("com.seven.flowable")
+@EnableJpaRepositories("com.seven.flowable")
+@ComponentScan(basePackages = "com.seven.flowable")
 public class Config {
 
   @Bean
